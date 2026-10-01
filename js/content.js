@@ -4,7 +4,7 @@ const siteContent = {
     subtitle:
       "Elevamos o padrão tecnológico do seu negócio ou residência com suporte especializado, manutenção avançada e infraestrutura robusta.",
     btnPrimaryText: "Fale Conosco no WhatsApp",
-    btnPrimaryLink: "https://wa.me/5500000000000", // Altere para seu número do WhatsApp
+    btnPrimaryLink: "https://wa.me/5554999731362", // Altere para seu número do WhatsApp
     btnSecondaryText: "Nossos Serviços",
     images: [
       "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=800&q=80",
