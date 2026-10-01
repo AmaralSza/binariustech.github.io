@@ -56,12 +56,12 @@ const siteContent = {
     {
       name: "WhatsApp",
       icon: "fa-brands fa-whatsapp",
-      link: "https://wa.me/5500000000000",
+      link: "https://wa.me/5554999731362",
     },
     {
       name: "E-mail",
       icon: "fa-solid fa-envelope",
-      link: "mailto:contato@binariustech.com",
+      link: "mailto:suporte@binariustech.com",
     },
   ],
   copyright:
