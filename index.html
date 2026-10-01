@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binarius Tech - Soluções em Informática</title>
+    <!-- Google Fonts & FontAwesome para ícones modernos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #00d2ff;
+            --secondary: #3a7bd5;
+            --dark: #0b0f19;
+            --dark-card: #131b2e;
+            --text-color: #cbd5e1;
+            --text-light: #f8fafc;
+            --accent: #00ff88;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff !important;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+            transition: var(--transition);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 210, 255, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 20px 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Estilização do Carrossel */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .carousel-slides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(11, 15, 25, 0.6);
+            color: var(--text-light);
+            border: none;
+            padding: 12px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .carousel-btn.prev {
+            left: 15px;
+        }
+
+        .carousel-btn.next {
+            right: 15px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            background: var(--primary);
+            width: 25px;
+            border-radius: 5px;
+        }
+
+        /* Seções Gerais */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        /* Cards de Serviços */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--dark-card);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        /* Sobre / Diferenciais */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .feature-item i {
+            color: var(--accent);
+        }
+
+        /* Rodapé */
+        footer {
+            background: var(--dark-card);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 60px 20px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 1.5rem;
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+
+            .hero,
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-buttons,
+            .hero-content h1 {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo" id="logo-text"><i class="fa-solid fa-microchip"></i> <span>Binarius Tech</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#contact" class="btn-cta" id="nav-cta">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 id="hero-title">Soluções inteligentes em <span>Informática e Tecnologia</span></h1>
+            <p id="hero-subtitle">Elevamos o padrão tecnológico do seu negócio ou residência com suporte especializado,
+                manutenção avançada e infraestrutura robusta.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-cta" id="hero-btn-primary">Fale Conosco</a>
+                <a href="#services" class="btn-outline" id="hero-btn-secondary">Nossos Serviços</a>
+            </div>
+        </div>
+        <!-- Carrossel no Hero -->
+        <div class="carousel-container">
+            <div class="carousel-slides" id="carousel-slides"></div>
+            <button class="carousel-btn prev" onclick="moveSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-btn next" onclick="moveSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="services">
+        <div class="section-title">
+            <h2 id="services-title">O que fazemos por você</h2>
+            <p id="services-subtitle">Tecnologia de ponta e suporte técnico ágil e eficiente</p>
+        </div>
+        <div class="services-grid" id="services-container"></div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="about">
+        <div class="about-content">
+            <div class="about-image">
+                <img id="about-img-src"
+                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
+                    alt="Sobre a Binarius Tech">
+            </div>
+            <div class="about-text">
+                <h3 id="about-title">Inovação e confiança em cada atendimento</h3>
+                <p id="about-desc">A Binarius Tech nasceu com o propósito de descomplicar a tecnologia. Contamos com
+                    profissionais altamente qualificados para entregar diagnósticos precisos, soluções rápidas e
+                    consultoria personalizada.</p>
+                <div class="about-features" id="features-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé / Contato -->
+    <footer id="contact">
+        <div class="footer-content">
+            <a href="#" class="logo"><span>Binarius Tech</span></a>
+            <p id="footer-text">Entre em contato e descubra como podemos otimizar seus equipamentos e redes.</p>
+            <div class="social-icons" id="social-container"></div>
+            <p class="copyright" id="copyright-text">&copy; 2026 Binarius Tech - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script Centralizado de Configuração e Conteúdo -->
+    <script>
+        const siteContent = {
+            hero: {
+                title: "Soluções inteligentes em <span>Informática e Tecnologia</span>",
+                subtitle: "Elevamos o padrão tecnológico do seu negócio ou residência com suporte especializado, manutenção avançada e infraestrutura robusta.",
+                btnPrimaryText: "Fale Conosco no WhatsApp",
+                btnPrimaryLink: "https://wa.me/5500000000000", // Altere para seu número do WhatsApp
+                btnSecondaryText: "Nossos Serviços",
+                images: [
+                    "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            services: [
+                {
+                    icon: "fa-solid fa-laptop-code",
+                    title: "Manutenção de Computadores",
+                    desc: "Formatação, limpeza avançada, troca de peças, otimização de desempenho e reparo de notebooks e desktops."
+                },
+                {
+                    icon: "fa-solid fa-network-wired",
+                    title: "Redes e Infraestrutura",
+                    desc: "Cabeamento estruturado, configuração de roteadores, Wi-Fi corporativo de alta performance e segurança de rede."
+                },
+                {
+                    icon: "fa-solid fa-shield-halved",
+                    title: "Segurança da Informação",
+                    desc: "Implementação de antivírus corporativos, rotinas de backup seguro e proteção contra ameaças virtuais."
+                },
+                {
+                    icon: "fa-solid fa-headset",
+                    title: "Suporte Técnico TI",
+                    desc: "Atendimento remoto e presencial ágil para empresas e residências, garantindo que seus sistemas nunca parem."
+                }
+            ],
+            about: {
+                title: "Inovação e confiança em cada atendimento",
+                description: "A Binarius Tech é especializada em transformar desafios tecnológicos em soluções simples e eficazes. Nosso compromisso é entregar excelência e agilidade para você ou sua empresa.",
+                image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80",
+                features: [
+                    "Atendimento Especializado",
+                    "Agilidade e Eficiência",
+                    "Soluções Personalizadas",
+                    "Suporte Garantido"
+                ]
+            },
+            socials: [
+                { name: "Instagram", icon: "fa-brands fa-instagram", link: "https://www.instagram.com/binarius.tech/" },
+                { name: "WhatsApp", icon: "fa-brands fa-whatsapp", link: "https://wa.me/5500000000000" },
+                { name: "E-mail", icon: "fa-solid fa-envelope", link: "mailto:contato@binariustech.com" }
+            ],
+            copyright: "&copy; 2026 Binarius Tech - Soluções em Informática. Todos os direitos reservados."
+        };
+
+        // Renderização dinâmica do conteúdo
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("hero-title").innerHTML = siteContent.hero.title;
+            document.getElementById("hero-subtitle").innerText = siteContent.hero.subtitle;
+            const btnPrimary = document.getElementById("hero-btn-primary");
+            btnPrimary.innerText = siteContent.hero.btnPrimaryText;
+            btnPrimary.href = siteContent.hero.btnPrimaryLink;
+            document.getElementById("hero-btn-secondary").innerText = siteContent.hero.btnSecondaryText;
+            document.getElementById("nav-cta").href = siteContent.hero.btnPrimaryLink;
+
+            // Serviços
+            document.getElementById("services-container").innerHTML = siteContent.services.map(s => `
+                <div class="service-card">
+                    <div class="service-icon"><i class="${s.icon}"></i></div>
+                    <h3>${s.title}</h3>
+                    <p>${s.desc}</p>
+                </div>
+            `).join("");
+
+            // Sobre
+            document.getElementById("about-title").innerText = siteContent.about.title;
+            document.getElementById("about-desc").innerText = siteContent.about.description;
+            document.getElementById("about-img-src").src = siteContent.about.image;
+            document.getElementById("features-container").innerHTML = siteContent.about.features.map(f => `
+                <div class="feature-item"><i class="fa-solid fa-circle-check"></i> ${f}</div>
+            `).join("");
+
+            // Redes Sociais
+            document.getElementById("social-container").innerHTML = siteContent.socials.map(soc => `
+                <a href="${soc.link}" target="_blank" title="${soc.name}"><i class="${soc.icon}"></i></a>
+            `).join("");
+
+            document.getElementById("copyright-text").innerHTML = siteContent.copyright;
+
+            // Inicialização do Carrossel
+            initCarousel();
+        });
+
+        // Lógica do Carrossel
+        let currentSlide = 0;
+        function initCarousel() {
+            const slidesContainer = document.getElementById("carousel-slides");
+            const dotsContainer = document.getElementById("carousel-dots");
+            if (!slidesContainer || !siteContent.hero.images) return;
+
+            slidesContainer.innerHTML = siteContent.hero.images.map(img => `<img src="${img}" alt="Binarius Tech">`).join("");
+            dotsContainer.innerHTML = siteContent.hero.images.map((_, index) => `<div class="dot ${index === 0 ? 'active' : ''}" onclick="currentSlideIndex(${index})"></div>`).join("");
+
+            // Troca automática a cada 4 segundos
+            setInterval(() => {
+                currentSlide++;
+                updateCarousel();
+            }, 4000);
+        }
+
+        function updateCarousel() {
+            const slides = document.querySelectorAll(".carousel-slides img");
+            const dots = document.querySelectorAll(".dot");
+            if (slides.length === 0) return;
+
+            if (currentSlide >= slides.length) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = slides.length - 1;
+
+            document.getElementById("carousel-slides").style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle("active", index === currentSlide);
+            });
+        }
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            updateCarousel();
+        }
+
+        function currentSlideIndex(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+    </script>
+</body>
+
+</html>
