@@ -4,13 +4,10 @@ const siteContent = {
     subtitle:
       "Elevamos o padrão tecnológico do seu negócio ou residência com suporte especializado, manutenção avançada e infraestrutura robusta.",
     btnPrimaryText: "Fale Conosco no WhatsApp",
-    btnPrimaryLink: "https://wa.me/5554999731362", // Altere para seu número do WhatsApp
+    btnPrimaryLink: "https://wa.me/5500000000000",
     btnSecondaryText: "Nossos Serviços",
-    images: [
-      "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80",
-    ],
+    // Imagens locais do carrossel:
+    images: ["images/foto1.jpg", "images/foto2.jpg"],
   },
   services: [
     {
@@ -38,8 +35,8 @@ const siteContent = {
     title: "Inovação e confiança em cada atendimento",
     description:
       "A Binarius Tech é especializada em transformar desafios tecnológicos em soluções simples e eficazes. Nosso compromisso é entregar excelência e agilidade para você ou sua empresa.",
-    image:
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80",
+    // Imagem local da seção Sobre:
+    image: "images/sobre.jpg",
     features: [
       "Atendimento Especializado",
       "Agilidade e Eficiência",
@@ -56,12 +53,12 @@ const siteContent = {
     {
       name: "WhatsApp",
       icon: "fa-brands fa-whatsapp",
-      link: "https://wa.me/5554999731362",
+      link: "https://wa.me/5500000000000",
     },
     {
       name: "E-mail",
       icon: "fa-solid fa-envelope",
-      link: "mailto:suporte@binariustech.com",
+      link: "mailto:contato@binariustech.com",
     },
   ],
   copyright:
