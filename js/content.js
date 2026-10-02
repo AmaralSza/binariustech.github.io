@@ -7,7 +7,7 @@ const siteContent = {
     btnPrimaryLink: "https://wa.me/5500000000000",
     btnSecondaryText: "Nossos Serviços",
     // Imagens locais do carrossel:
-    images: ["images/foto1.jpg", "images/foto2.jpg"],
+    images: ["images/foto1.jpg", "images/foto2.jpg", "images/foto3.jpg"],
   },
   services: [
     {
