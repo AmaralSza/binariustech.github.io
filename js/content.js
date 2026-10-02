@@ -58,7 +58,7 @@ const siteContent = {
     {
       name: "E-mail",
       icon: "fa-solid fa-envelope",
-      link: "mailto:suporte@binariustech.com",
+      link: "mailto:suporte@binariustech.com.br",
     },
   ],
   copyright:
