@@ -4,7 +4,7 @@ const siteContent = {
     subtitle:
       "Elevamos o padrão tecnológico do seu negócio ou residência com suporte especializado, manutenção avançada e infraestrutura robusta.",
     btnPrimaryText: "Fale Conosco no WhatsApp",
-    btnPrimaryLink: "https://wa.me/5500000000000",
+    btnPrimaryLink: "https://wa.me/5554999731362",
     btnSecondaryText: "Nossos Serviços",
     // Imagens locais do carrossel:
     images: ["images/foto1.jpg", "images/foto2.jpg", "images/foto3.jpg"],
@@ -53,12 +53,12 @@ const siteContent = {
     {
       name: "WhatsApp",
       icon: "fa-brands fa-whatsapp",
-      link: "https://wa.me/5500000000000",
+      link: "https://wa.me/5554999731362",
     },
     {
       name: "E-mail",
       icon: "fa-solid fa-envelope",
-      link: "mailto:contato@binariustech.com",
+      link: "mailto:suporte@binariustech.com",
     },
   ],
   copyright:
